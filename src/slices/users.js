@@ -3,10 +3,10 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {}
 
 export const usersSlice = createSlice({
-    name:users,
+    name: users,
     initialState,
     reducers: {
-        recieveUsers: (state, action) => {
+        receiveUsers: (state, action) => {
             state.users = action.users
         }
     },
