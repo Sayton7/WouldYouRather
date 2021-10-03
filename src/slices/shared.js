@@ -5,7 +5,9 @@ import { receiveQuestions } from './questions'
 export default function handleInitialData () {
     return (dispatch) => {
         return getInitialData()
-            .then(dispatch(receiveUsers(users)))
-            .then(dispatch(receiveQuestions(questions)))
+            .then(({users, questions}) => {
+                dispatch(receiveUsers(users))
+                dispatch(receiveQuestions(questions))
+            })
     }
 }

@@ -5,7 +5,7 @@ export const questionsSlice = createSlice({
     initialState: {},
     reducers: {
         receiveQuestions: (state, action) => {
-            state.users = action.users
+            Object.assign(state, action.payload)
         }
     },
 })
