@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import handleInitialData from '../slices/shared'
-import ButtonAppBar from './Nav'
+import Nav from './Nav'
+import LoginCard from'./LoginCard'
 
 function App() {
   const dispatch = useDispatch()
@@ -12,7 +13,8 @@ function App() {
 
   return (
     <div>
-      <ButtonAppBar />
+      <Nav />
+      <LoginCard />
     </div>
   );
 }

@@ -22,3 +22,15 @@ code {
   display: flex;
   flex-grow: 1;
 }
+
+.login {
+  margin: auto;
+  max-width: 450px;
+  margin-top: 2%;
+}
+
+.select {
+  margin: auto;
+  min-width: 200px;
+  margin-bottom: 10px;
+}
