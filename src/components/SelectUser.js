@@ -4,12 +4,15 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { useSelector } from 'react-redux';
+import { selectUsers } from '../slices/users'
 
 export default function BasicSelect() {
-  const [age, setAge] = React.useState('');
+  const [user, setUser] = React.useState('');
+  const users = useSelector(selectUsers)
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setUser(event.target.value);
   };
 
   return (
@@ -19,13 +22,13 @@ export default function BasicSelect() {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
+          value={user}
           label="Age"
           onChange={handleChange}
         >
-          <MenuItem value={10}>User 1</MenuItem>
-          <MenuItem value={20}>User 2</MenuItem>
-          <MenuItem value={30}>User 3</MenuItem>
+          {(Object.keys(users)).map((user, index) => (
+            <MenuItem value={user} key={index}>{user}</MenuItem>
+          ))}
         </Select>
       </FormControl>
     </Box>

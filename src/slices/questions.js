@@ -12,4 +12,6 @@ export const questionsSlice = createSlice({
 
 export const { receiveQuestions } = questionsSlice.actions
 
+export const selectQuestions = (state) => state.questions
+
 export default questionsSlice.reducer
