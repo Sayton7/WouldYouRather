@@ -23,14 +23,20 @@ code {
   flex-grow: 1;
 }
 
-.login {
+.loginCard {
   margin: auto;
   max-width: 450px;
   margin-top: 2%;
 }
 
-.select {
-  margin: auto;
-  min-width: 200px;
-  margin-bottom: 10px;
+.cardActions {
+  margin:auto;
+  margin-bottom: 15px;
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 15px;
+}
+
+.cardActions Button {
+  min-height: 50px;
 }

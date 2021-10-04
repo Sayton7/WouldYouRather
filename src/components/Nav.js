@@ -12,12 +12,12 @@ export default function ButtonAppBar() {
     <Box>
       <AppBar position="static">
         <Toolbar>
-          <div className='navBtns'>
+          <Box className='navBtns'>
             <Button color="inherit">Home</Button>
             <Button color="inherit">New Question</Button>
             <Button color="inherit">Leader Board</Button>
-          </div>
-          <div className="userInfo">
+          </Box>
+          <Box className="userInfo">
             <Typography variant="h6" component="div" >
               Welcome, User.
             </Typography>
@@ -30,7 +30,7 @@ export default function ButtonAppBar() {
              >
              <AccountCircle />
             </IconButton>
-          </div>
+          </Box>
         </Toolbar>
       </AppBar>
     </Box>
