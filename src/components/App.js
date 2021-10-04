@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import handleInitialData from '../slices/shared'
+import ButtonAppBar from './Nav'
 
 function App() {
   const dispatch = useDispatch()
@@ -11,7 +12,7 @@ function App() {
 
   return (
     <div>
-      APP
+      <ButtonAppBar />
     </div>
   );
 }
