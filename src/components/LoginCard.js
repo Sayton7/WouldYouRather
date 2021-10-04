@@ -7,8 +7,19 @@ import Typography from '@mui/material/Typography';
 import SelectUser from './SelectUser';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import { useDispatch, useSelector } from 'react-redux';
+import { setAuthedUser } from '../slices/authedUser'
+import { selectUsers } from '../slices/users'
 
 export default function ImgMediaCard() {
+  const users = useSelector(selectUsers)
+  const dispatch = useDispatch()
+  const [user, setUser] = React.useState('');
+
+  const handleChange = (event) => {
+    setUser(event.target.value);
+  };
+
   return (
     <Card className='loginCard'>
       <CardMedia
@@ -24,8 +35,8 @@ export default function ImgMediaCard() {
       </CardContent>
       <CardActions>
         <Box className='cardActions'>
-          <SelectUser />
-          <Button variant="contained">Sign In</Button>
+          <SelectUser user={user} users={users}handleChange={handleChange}/>
+          <Button onClick={() => dispatch(setAuthedUser(users[user].id))} variant="contained">Sign In</Button>
         </Box>
       </CardActions>
     </Card>

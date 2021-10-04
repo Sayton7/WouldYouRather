@@ -5,7 +5,7 @@ export const authedUserSlice = createSlice({
     initialState: null,
     reducers: {
         setAuthedUser: (state, action) => {
-            Object.assign(state, action.payload)
+            
         }
     },
 })
