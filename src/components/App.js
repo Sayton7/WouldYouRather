@@ -9,7 +9,8 @@ function App() {
 
   useEffect(() => {
     dispatch(handleInitialData())
-  },[dispatch])
+    // eslint-disable-next-line
+  },[])
 
   return (
     <div>

@@ -20,6 +20,11 @@ export default function ImgMediaCard() {
     setUser(event.target.value);
   };
 
+  const handleAuthedUser = (e) => {
+    e.preventDefault()
+    dispatch(setAuthedUser(users[user].id))
+  }
+
   return (
     <Card className='loginCard'>
       <CardMedia
@@ -36,7 +41,7 @@ export default function ImgMediaCard() {
       <CardActions>
         <Box className='cardActions'>
           <SelectUser user={user} users={users}handleChange={handleChange}/>
-          <Button onClick={() => dispatch(setAuthedUser(users[user].id))} variant="contained">Sign In</Button>
+          <Button onClick={(e) => handleAuthedUser(e)} variant="contained" disabled={user === ''}>Sign In</Button>
         </Box>
       </CardActions>
     </Card>
