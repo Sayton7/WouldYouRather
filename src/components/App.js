@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import handleInitialData from '../slices/shared'
 import Nav from './Nav'
-import LoginCard from'./LoginCard'
+// import LoginCard from './LoginCard'
+import Questions from './Questions'
 
 function App() {
   const dispatch = useDispatch()
@@ -15,7 +16,8 @@ function App() {
   return (
     <div>
       <Nav />
-      <LoginCard />
+      {/* <LoginCard /> */}
+      <Questions />
     </div>
   );
 }
