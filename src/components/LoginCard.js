@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import SelectUser from './SelectUser';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import logo from '../utils/logo.webp'
 import { useDispatch, useSelector } from 'react-redux';
 import { setAuthedUser } from '../slices/authedUser'
 import { selectUsers } from '../slices/users'
@@ -27,11 +28,12 @@ export default function ImgMediaCard() {
 
   return (
     <Card className='loginCard'>
-      <CardMedia
+      <CardMedia 
         component="img"
-        alt="green iguana"
+        alt="Would You Rather"
         height="140"
-        image=""
+        image={(users && user) ? users[user].avatarURL : logo}
+        sx={{minHeight: 200}}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div" sx={{textAlign: 'center'}}>
