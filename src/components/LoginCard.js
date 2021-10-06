@@ -8,7 +8,7 @@ import SelectUser from './SelectUser';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import logo from '../utils/logo.webp'
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { setAuthedUser } from '../slices/authedUser'
 import { selectUsers } from '../slices/users'
 

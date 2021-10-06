@@ -5,21 +5,27 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import AccountCircle from '@mui/icons-material/AccountCircle';
+import Avatar from '@mui/material/Avatar';
+import { useSelector } from 'react-redux';
+import { selectAuthedUser } from '../slices/authedUser';
+import { selectUsers } from '../slices/users'
 
 export default function ButtonAppBar() {
+  const authedUser = useSelector(selectAuthedUser)
+  const users = useSelector(selectUsers)
+
   return (
     <Box>
       <AppBar position="static">
         <Toolbar>
           <Box className='navBtns'>
             <Button color="inherit">Home</Button>
-            <Button color="inherit">New Question</Button>
-            <Button color="inherit">Leader Board</Button>
+            <Button color="inherit" disabled={authedUser === null}>New Question</Button>
+            <Button color="inherit" disabled={authedUser === null}>Leader Board</Button>
           </Box>
           <Box className="userInfo">
             <Typography variant="h6" component="div" >
-              Welcome, User.
+              {authedUser === null ? "Please Log In" : `Welcome, ${authedUser}`}
             </Typography>
             <IconButton
               size="large"
@@ -28,7 +34,10 @@ export default function ButtonAppBar() {
               aria-haspopup="true"
               color="inherit"
              >
-             <AccountCircle />
+             {authedUser === null
+              ? <Avatar alt="User" src="" />
+              : <Avatar alt={users[authedUser].name} src={users[authedUser].avatarURL} />
+             }
             </IconButton>
           </Box>
         </Toolbar>
