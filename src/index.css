@@ -40,3 +40,43 @@ code {
 .cardActions Button {
   min-height: 50px;
 }
+
+.tab-panel {
+  margin: auto;
+}
+
+.question-li {
+  text-align: center;
+  margin:auto;
+  margin-bottom: 10px;
+  max-width: 400px;
+}
+
+.question-li .user-asked {
+  font-size: large;
+  font-weight: 700;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid ;
+}
+
+.question-li .user-question {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-auto-flow: column;
+  text-align: center;
+}
+
+.question-li .user-question .avatar {
+  margin-left: 15%;
+  width: 56px;
+  height: 56px;
+}
+
+.question-li .user-question .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid;
+  grid-area: 1 / 2 / 1 / span 4;
+}

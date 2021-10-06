@@ -31,9 +31,8 @@ export default function ImgMediaCard() {
       <CardMedia 
         component="img"
         alt="Would You Rather"
-        height="140"
+        height="200"
         image={(users && user) ? users[user].avatarURL : logo}
-        sx={{minHeight: 200}}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div" sx={{textAlign: 'center'}}>

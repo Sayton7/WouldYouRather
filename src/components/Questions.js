@@ -2,8 +2,8 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import QuestionLi from './QuestionLI'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -18,7 +18,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
+          {children}
         </Box>
       )}
     </div>
@@ -54,7 +54,8 @@ export default function BasicTabs() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        Unanswered Questions
+        <QuestionLi />
+        <QuestionLi />
       </TabPanel>
       <TabPanel value={value} index={1}>
         Answered Questions
