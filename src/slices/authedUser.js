@@ -12,4 +12,6 @@ export const authedUserSlice = createSlice({
 
 export const { setAuthedUser } = authedUserSlice.actions
 
+export const selectAuthedUser = (state) => state.authedUser
+
 export default authedUserSlice.reducer
