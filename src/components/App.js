@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import handleInitialData from '../slices/shared'
 import Nav from './Nav'
-// import LoginCard from './LoginCard'
+import LoginCard from './LoginCard'
 import Questions from './Questions'
+import { selectAuthedUser } from '../slices/authedUser';
 
 function App() {
+  const authedUser = useSelector(selectAuthedUser)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -16,8 +18,10 @@ function App() {
   return (
     <div>
       <Nav />
-      {/* <LoginCard /> */}
-      <Questions />
+      {authedUser === null
+      ? <LoginCard />
+      : <Questions />
+      }
     </div>
   );
 }

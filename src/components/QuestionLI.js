@@ -2,22 +2,22 @@ import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
+import { CardActionArea } from '@mui/material';
 
-export default function ActionAreaCard() {
+export default function ActionAreaCard(props) {
   return (
     <Card className='question-li'>
       <CardActionArea>
         <CardContent>
           <Typography gutterBottom variant="h" component="div" className='user-asked'>
-            User Asked
+            {`${props.userName} asks:`}
           </Typography>
           <Box className = 'user-question'>
-          <Avatar alt="User" src="" className='avatar'/>
+          <Avatar alt={props.userName} src={props.userAvatar} className='avatar'/>
           <Typography variant="body2" color="text.secondary" className='content'>
-            Question content
+            {`${props.contentSample.substr(0, 20)}...`}
           </Typography>
           </Box>
         </CardContent>

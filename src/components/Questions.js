@@ -4,6 +4,10 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import QuestionLi from './QuestionLI'
+import { useSelector } from 'react-redux';
+import { selectAuthedUser } from '../slices/authedUser';
+import { selectUsers } from '../slices/users';
+import { selectQuestions } from '../slices/questions';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -40,6 +44,10 @@ function a11yProps(index) {
 
 export default function BasicTabs() {
   const [value, setValue] = React.useState(0);
+  const authedUser = useSelector(selectAuthedUser)
+  const users = useSelector(selectUsers)
+  const questions = useSelector(selectQuestions)
+  const questionsList = Object.keys(questions)
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -54,11 +62,24 @@ export default function BasicTabs() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <QuestionLi />
-        <QuestionLi />
+        {questionsList.map((QID) => ( !users[authedUser].answers[QID] &&
+          <QuestionLi
+          key={QID}
+          userName={users[questions[QID].author].name}
+          userAvatar={users[questions[QID].author].avatarURL}
+          contentSample={questions[QID].optionOne.text}
+          />
+        ))}
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Answered Questions
+        {questionsList.map((QID) => ( users[authedUser].answers[QID] &&
+          <QuestionLi
+          key={QID}
+          userName={users[questions[QID].author].name}
+          userAvatar={users[questions[QID].author].avatarURL}
+          contentSample={questions[QID].optionOne.text}
+          />
+        ))}
       </TabPanel>
     </Box>
   );
