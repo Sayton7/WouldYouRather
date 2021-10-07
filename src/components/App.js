@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import handleInitialData from '../slices/shared'
 import Nav from './Nav'
 import LoginCard from './LoginCard'
-import QuestionsList from './QuestionsList'
+// import QuestionsList from './QuestionsList'
+import UnansweredQuestion from './UnansweredQuestion'
 import { selectAuthedUser } from '../slices/authedUser';
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
       <Nav />
       {authedUser === null
       ? <LoginCard />
-      : <QuestionsList />
+      : <UnansweredQuestion />
       }
     </div>
   );
