@@ -37,7 +37,7 @@ function ControlledRadioButtonsGroup() {
 
 export default function ActionAreaCard() {
   return (
-    <Card className='new-question'>
+    <Card className='unanswered-question'>
         <CardContent>
           <Typography gutterBottom variant="h" component="div" className='user-asked'>
             User

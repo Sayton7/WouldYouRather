@@ -4,7 +4,8 @@ import handleInitialData from '../slices/shared'
 import Nav from './Nav'
 import LoginCard from './LoginCard'
 // import QuestionsList from './QuestionsList'
-import UnansweredQuestion from './UnansweredQuestion'
+// import UnansweredQuestion from './UnansweredQuestion'
+import AnsweredQuestion from './AnsweredQuestion'
 import { selectAuthedUser } from '../slices/authedUser';
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
       <Nav />
       {authedUser === null
       ? <LoginCard />
-      : <UnansweredQuestion />
+      : <AnsweredQuestion />
       }
     </div>
   );
