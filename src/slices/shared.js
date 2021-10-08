@@ -21,11 +21,11 @@ export function handleSaveQuestionAnswer (authedUser, qid, answer) {
         answer,
     }
     return (dispatch) => {
-        dispatch(addQuestion(data))
         return saveQuestionAnswer(data)
-        .catch((e) => {
-            console.warn('Error in handleSaveQuestion: ', e)
-            alert('There was an error answering the question. Try again.')
-        })
+            .then(dispatch(addQuestion(data)))
+            .catch((e) => {
+                console.warn('Error in handleSaveQuestion: ', e)
+                alert('There was an error answering the question. Try again.')
+            })
     }
 }
