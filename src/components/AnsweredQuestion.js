@@ -6,8 +6,10 @@ import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import { useParams } from 'react-router-dom';
 
 function LinearProgressWithLabel(props) {
+    let {id} = useParams()
     return (
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <Box sx={{ width: '100%', mr: 1 }}>

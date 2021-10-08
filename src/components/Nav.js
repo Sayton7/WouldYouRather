@@ -9,6 +9,7 @@ import Avatar from '@mui/material/Avatar';
 import { useSelector } from 'react-redux';
 import { selectAuthedUser } from '../slices/authedUser';
 import { selectUsers } from '../slices/users'
+import { Link } from 'react-router-dom'
 
 export default function ButtonAppBar() {
   const authedUser = useSelector(selectAuthedUser)
@@ -19,7 +20,7 @@ export default function ButtonAppBar() {
       <AppBar position="static">
         <Toolbar>
           <Box className='navBtns'>
-            <Button color="inherit">Home</Button>
+            <Button color="inherit" component={Link} to='/'>Home</Button>
             <Button color="inherit" disabled={authedUser === null}>New Question</Button>
             <Button color="inherit" disabled={authedUser === null}>Leader Board</Button>
           </Box>
