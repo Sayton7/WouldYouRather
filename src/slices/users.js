@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addQuestion } from './sharedActions'
+import { questionResponse } from './sharedActions'
+import { asyncSaveQuestion } from './sharedActions'
 
 export const usersSlice = createSlice({
     name: 'users',
@@ -11,8 +12,11 @@ export const usersSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(addQuestion, (state, action) => {
+            .addCase(questionResponse, (state, action) => {
                 state[action.payload.authedUser].answers = Object.assign(state[action.payload.authedUser].answers, {[action.payload.qid]: action.payload.answer})
+            })
+            .addCase(asyncSaveQuestion.fulfilled, (state, action) => {
+                state[action.payload.author].questions.push(action.payload.id)
             })
     }
 })

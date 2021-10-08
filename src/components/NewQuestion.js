@@ -5,10 +5,28 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectAuthedUser } from '../slices/authedUser'
+import { asyncSaveQuestion } from '../slices/sharedActions'
+import { Redirect } from 'react-router-dom'
 
 export default function ActionAreaCard() {
     const [one, setOne] = React.useState('');
     const [two, setTwo] = React.useState('');
+    const [toHome, setToHome] = React.useState('false');
+    const dispatch = useDispatch()
+    const authedUser = useSelector(selectAuthedUser)
+    const newQuestion = {optionOneText: one, optionTwoText: two, author: authedUser}
+
+    const handleSubmit = () => {
+      dispatch(asyncSaveQuestion(newQuestion))
+      setToHome(true)
+    }
+
+    if (toHome === true) {
+      return <Redirect to='/' />
+    }
+
   return (
     <Card className='new-question'>
         <CardContent>
@@ -37,7 +55,7 @@ export default function ActionAreaCard() {
               onChange={(e) => setTwo(e.target.value)}
               className='text-field'
             />
-            <Button variant="contained" className='button'>Submit</Button>
+            <Button variant="contained" className='button' onClick={() => {handleSubmit()}}>Submit</Button>
           </Box>
         </CardContent>
     </Card>

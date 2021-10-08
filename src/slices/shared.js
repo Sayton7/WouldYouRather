@@ -1,8 +1,7 @@
-import { getInitialData } from '../utils/api'
+import { getInitialData, saveQuestionAnswer } from '../utils/api'
 import { receiveUsers } from './users'
 import { receiveQuestions } from './questions'
-import { saveQuestionAnswer } from '../utils/api'
-import { addQuestion } from './sharedActions'
+import { questionResponse } from './sharedActions'
 
 export default function handleInitialData () {
     return (dispatch) => {
@@ -22,7 +21,7 @@ export function handleSaveQuestionAnswer (authedUser, qid, answer) {
     }
     return (dispatch) => {
         return saveQuestionAnswer(data)
-            .then(dispatch(addQuestion(data)))
+            .then(dispatch(questionResponse(data)))
             .catch((e) => {
                 console.warn('Error in handleSaveQuestion: ', e)
                 alert('There was an error answering the question. Try again.')
