@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { addQuestion } from './sharedActions'
 
 export const questionsSlice = createSlice({
     name: 'questions',
@@ -8,6 +9,12 @@ export const questionsSlice = createSlice({
             Object.assign(state, action.payload)
         }
     },
+    extraReducers: (builder) => {
+        builder
+            .addCase(addQuestion, (state, action) => {
+                state[action.payload.qid][action.payload.answer].votes.push(action.payload.authedUser)
+            })
+    }
 })
 
 export const { receiveQuestions } = questionsSlice.actions

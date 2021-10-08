@@ -23,7 +23,7 @@ function App() {
       <div>
         <Nav />
         {authedUser === null
-        ? <Route path='/' exact component={LoginCard} />
+        ? <Route path='/' component={LoginCard} />
         : <div>
             <Route path='/' exact component={QuestionsList} />
             <Route path='/answered/:id' exact component={AnsweredQuestion} />

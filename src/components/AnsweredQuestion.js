@@ -9,7 +9,8 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import { useParams } from 'react-router-dom';
 
 function LinearProgressWithLabel(props) {
-    let {id} = useParams()
+    const {id} = useParams()
+
     return (
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <Box sx={{ width: '100%', mr: 1 }}>

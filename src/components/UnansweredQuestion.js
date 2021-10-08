@@ -10,13 +10,31 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import { Button } from '@mui/material';
+import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectAuthedUser } from '../slices/authedUser'
+import { selectUsers } from '../slices/users'
+import { selectQuestions } from '../slices/questions'
+import { handleSaveQuestionAnswer } from '../slices/shared'
+import { Redirect } from 'react-router-dom'
 
-function ControlledRadioButtonsGroup() {
+function ControlledRadioButtonsGroup(props) {
     const [value, setValue] = React.useState('');
+    const [toHome, setToHome] = React.useState('false');
+    const dispatch = useDispatch()
 
     const handleChange = (event) => {
       setValue(event.target.value);
     };
+
+    const handleSubmit = () => {
+      dispatch(handleSaveQuestionAnswer(props.authedUser, props.qid, value))
+      setToHome(true)
+    }
+
+    if (toHome === true) {
+      return <Redirect to='/' />
+    }
 
     return (
       <FormControl component="fieldset" className='options'>
@@ -27,24 +45,33 @@ function ControlledRadioButtonsGroup() {
           value={value}
           onChange={handleChange}
         >
-          <FormControlLabel value="Option One" control={<Radio />} label="Option One" />
-          <FormControlLabel value="Opiton Two" control={<Radio />} label="Option Two" />
+          <FormControlLabel value="optionOne" control={<Radio />} label={props.optionOne} />
+          <FormControlLabel value="optionTwo" control={<Radio />} label={props.optionTwo} />
         </RadioGroup>
-        <Button variant="contained" className='submit'>Submit</Button>
+        <Button variant="contained" className='submit' onClick={() => {handleSubmit()}}>Submit</Button>
       </FormControl>
     );
 }
 
 export default function ActionAreaCard() {
+    const {id} = useParams()
+    const authedUser = useSelector(selectAuthedUser)
+    const users = useSelector(selectUsers)
+    const questions = useSelector(selectQuestions)
   return (
     <Card className='unanswered-question'>
         <CardContent>
           <Typography gutterBottom variant="h" component="div" className='user-asked'>
-            User
+            {users[questions[id].author].name} asks:
           </Typography>
           <Box className = 'user-question'>
-            <Avatar alt="User" src="" className='avatar'/>
-            <ControlledRadioButtonsGroup />
+            <Avatar alt={users[questions[id].author].name} src={users[questions[id].author].avatarURL} className='avatar'/>
+            <ControlledRadioButtonsGroup
+            optionOne={questions[id].optionOne.text}
+            optionTwo={questions[id].optionTwo.text}
+            authedUser={authedUser}
+            qid={id}
+            />
           </Box>
         </CardContent>
     </Card>
