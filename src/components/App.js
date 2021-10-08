@@ -6,6 +6,7 @@ import LoginCard from './LoginCard'
 import QuestionsList from './QuestionsList'
 import UnansweredQuestion from './UnansweredQuestion'
 import AnsweredQuestion from './AnsweredQuestion'
+import NewQuestion from './NewQuestion'
 import { selectAuthedUser } from '../slices/authedUser';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
@@ -26,8 +27,9 @@ function App() {
         ? <Route path='/' component={LoginCard} />
         : <div>
             <Route path='/' exact component={QuestionsList} />
-            <Route path='/answered/:id' exact component={AnsweredQuestion} />
-            <Route path='/unanswered/:id' exact component={UnansweredQuestion} />
+            <Route path='/answered/:id' component={AnsweredQuestion} />
+            <Route path='/unanswered/:id' component={UnansweredQuestion} />
+            <Route path='/new' component={NewQuestion} />
           </div>
         }
       </div>
