@@ -7,6 +7,7 @@ import QuestionsList from './QuestionsList'
 import UnansweredQuestion from './UnansweredQuestion'
 import AnsweredQuestion from './AnsweredQuestion'
 import NewQuestion from './NewQuestion'
+import LeaderBoard from './LeaderBoard'
 import { selectAuthedUser } from '../slices/authedUser';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
@@ -30,6 +31,7 @@ function App() {
             <Route path='/answered/:id' component={AnsweredQuestion} />
             <Route path='/unanswered/:id' component={UnansweredQuestion} />
             <Route path='/new' component={NewQuestion} />
+            <Route path='/leaderboard' component={LeaderBoard} />
           </div>
         }
       </div>
