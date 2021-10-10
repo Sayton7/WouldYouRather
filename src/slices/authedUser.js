@@ -6,11 +6,14 @@ export const authedUserSlice = createSlice({
     reducers: {
         setAuthedUser: (state, action) => {
             return action.payload
+        },
+        removeAuthedUser: (state, action) => {
+            return action.payload
         }
     },
 })
 
-export const { setAuthedUser } = authedUserSlice.actions
+export const { setAuthedUser, removeAuthedUser } = authedUserSlice.actions
 
 export const selectAuthedUser = (state) => state.authedUser
 

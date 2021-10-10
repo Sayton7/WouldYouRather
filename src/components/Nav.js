@@ -13,7 +13,8 @@ import Popper from '@mui/material/Popper';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 import { useSelector } from 'react-redux';
-import { selectAuthedUser } from '../slices/authedUser';
+import { selectAuthedUser, removeAuthedUser } from '../slices/authedUser';
+import { useDispatch } from 'react-redux';
 import { selectUsers } from '../slices/users'
 import { Link } from 'react-router-dom'
 
@@ -22,6 +23,7 @@ export default function ButtonAppBar() {
   const anchorRef = React.useRef(null);
   const authedUser = useSelector(selectAuthedUser)
   const users = useSelector(selectUsers)
+  const dispatch = useDispatch()
 
   const handleToggle = () => {
     if (authedUser !== null) {
@@ -55,6 +57,11 @@ export default function ButtonAppBar() {
 
     prevOpen.current = open;
   }, [open]);
+
+  const handleLogout = () => {
+    dispatch(removeAuthedUser(null))
+    setOpen(false);
+  }
 
   return (
     <Box>
@@ -110,7 +117,7 @@ export default function ButtonAppBar() {
                           aria-labelledby="composition-button"
                           onKeyDown={handleListKeyDown}
                         >
-                          <MenuItem onClick={handleClose}>Logout</MenuItem>
+                          <MenuItem onClick={handleLogout}>Logout</MenuItem>
                         </MenuList>
                       </ClickAwayListener>
                     </Paper>
