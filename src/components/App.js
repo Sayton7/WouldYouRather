@@ -28,10 +28,12 @@ function App() {
         ? <Route path='/' component={LoginCard} />
         : <Switch>
             <Route path='/' exact component={QuestionsList} />
-            <Route path='/questions/:id' component={QuestionPage} />
+            <Route path='/questions/:id' exact component={QuestionPage} />
+            <Route path='/questions/*' component={NotFound} />
             <Route path='/add' component={NewQuestion} />
             <Route path='/leaderboard' component={LeaderBoard} />
-            <Route component={NotFound} />
+            <Route path='*' component={NotFound} />
+            
           </Switch>
         }
       </div>

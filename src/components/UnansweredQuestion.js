@@ -16,11 +16,9 @@ import { selectAuthedUser } from '../slices/authedUser'
 import { selectUsers } from '../slices/users'
 import { selectQuestions } from '../slices/questions'
 import { handleSaveQuestionAnswer } from '../slices/shared'
-import { Redirect } from 'react-router-dom'
 
 function ControlledRadioButtonsGroup(props) {
     const [value, setValue] = React.useState('');
-    const [toHome, setToHome] = React.useState('false');
     const dispatch = useDispatch()
 
     const handleChange = (event) => {
@@ -29,11 +27,6 @@ function ControlledRadioButtonsGroup(props) {
 
     const handleSubmit = () => {
       dispatch(handleSaveQuestionAnswer(props.authedUser, props.qid, value))
-      setToHome(true)
-    }
-
-    if (toHome === true) {
-      return <Redirect to='/' />
     }
 
     return (
