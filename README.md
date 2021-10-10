@@ -1,3 +1,71 @@
+# MyReads Project
+
+* A simple App where users could ask questions, answer each other's questions and get ranked based on their interactions.
+* You could login using different users and have the app's pages interact with each user's status (including their answered and asked questions).
+* The app consists of three main pages:
+    * Home: Where the user could view his answered and unanswered questions and interact with them.
+    * New Question: Where the user can post a new question.
+    * Leaderboard: Where the users get ranked based on their interaction
+* The app was built using React library adding redux-toolkit to manage the state of the app.
+
+
+## General Information
+
+* This is the Second project in Udacity's Advanced Web Development course. the project was created using create-react-app adding the redux-toolkit to it.
+* This app uses the provided _DATA.js file as a backend.
+
+## TL;DR
+
+To get started developing right away:
+
+* install all project dependencies with `yarn install`
+* start the development server with `yarn start`
+
+## Backend Server
+
+To simplify your development process, we've provided a backend server for you to develop against. The provided file [`_DATA.js`](src/utils/_DATA.js.js) was used to build a simple api file [`api.js`](src/utils/api.js) contains the methods you will need to perform necessary operations on the backend:
+
+* [`getInitialData`](#getInitialData)
+* [`saveQuestion`](#saveQuestion)
+* [`saveQuestionAnswer`](#saveQuestionAnswer)
+
+### `getInitialData`
+
+Method Signature:
+
+```js
+getInitialData()
+```
+
+* Returns a Promise which resolves to an object containing the current users and questions data.
+
+### `saveQuestion`
+
+Method Signature:
+
+```js
+saveQuestion({optionOneText, optionTwoText, author})
+```
+
+* optionOneText: `<String>` contains the first part of the question.
+* optionTwoText: `<String>` contains the second part of the question.
+* author: `<String>` contains the name of the creating user.
+* Returns a Promise which resolves to an object containing formated question data.
+
+### `saveQuestionAnswer`
+
+Method Signature:
+
+```js
+saveQuestionAnswer({ authedUser, qid, answer })
+```
+
+* authedUser: `<String>` contains the name of the answering user.
+* qid: `<String>` represenging the question id.
+* answer: `<String>` contains the value of the selected answer.
+
+# Getting Started with Create React App
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
