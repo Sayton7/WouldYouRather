@@ -7,8 +7,9 @@ import QuestionsList from './QuestionsList'
 import NewQuestion from './NewQuestion'
 import LeaderBoard from './LeaderBoard'
 import QuestionPage from './QuestionPage';
+import NotFound from './NotFound';
 import { selectAuthedUser } from '../slices/authedUser';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 function App() {
   const authedUser = useSelector(selectAuthedUser)
@@ -25,12 +26,13 @@ function App() {
         <Nav />
         {authedUser === null
         ? <Route path='/' component={LoginCard} />
-        : <div>
+        : <Switch>
             <Route path='/' exact component={QuestionsList} />
             <Route path='/questions/:id' component={QuestionPage} />
             <Route path='/add' component={NewQuestion} />
             <Route path='/leaderboard' component={LeaderBoard} />
-          </div>
+            <Route component={NotFound} />
+          </Switch>
         }
       </div>
     </Router>

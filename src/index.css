@@ -286,3 +286,8 @@ code {
   margin: auto;
   background-color: #2196f3;
 }
+
+.invalid {
+  text-align: center;
+  margin-top: 50px;
+}
