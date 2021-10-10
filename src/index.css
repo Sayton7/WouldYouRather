@@ -218,12 +218,13 @@ code {
 
 .leader-board {
   margin: auto;
-  max-width: 500px;
+  max-width: 600px;
   margin-top: 2%;
 }
 
 .leader-board .container{
   display: grid;
+  grid-gap: 10px;
   grid-template-columns: auto auto auto auto auto;
   grid-auto-flow: column;
   text-align: center;
@@ -236,16 +237,52 @@ code {
   grid-area: 1 / 1 / span 1 / span 1;
 }
 
-.leader-board .user-info{
+.leader-board .user-info {
   min-width: 200px;
-  border-left: solid;
-  border-right: solid;
-  padding: 15px;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  padding: 5px 50px;
   margin: auto;
-  grid-area: 1 / 2 / span 1 / span 4;
+  grid-area: 1 / 2 / span 1 / 5;
+}
+
+.leader-board .user-info .name{
+  text-align: left;
+  font-size: x-large;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.leader-board .user-info .answered{
+  text-align: left;
+  font-size: larger;
+  font-weight: 600;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid;
+}
+
+.leader-board .user-info .created{
+  text-align: left;
+  font-size: larger;
+  font-weight: 600;
 }
 
 .leader-board .score{
   margin: auto;
+  border: 1px solid;
+  padding: 10px ;
   grid-area: 1 / 5 / span 1 / span 5;
+}
+
+.leader-board .score .score-title{
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid;
+}
+
+.leader-board .score .score-value{
+  margin: auto;
+  background-color: #2196f3;
 }

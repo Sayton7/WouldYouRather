@@ -48,7 +48,7 @@ function ControlledRadioButtonsGroup(props) {
           <FormControlLabel value="optionOne" control={<Radio />} label={props.optionOne} />
           <FormControlLabel value="optionTwo" control={<Radio />} label={props.optionTwo} />
         </RadioGroup>
-        <Button variant="contained" className='submit' onClick={() => {handleSubmit()}}>Submit</Button>
+        <Button variant="contained" className='submit' onClick={() => {handleSubmit()}} disabled={value === ''}>Submit</Button>
       </FormControl>
     );
 }

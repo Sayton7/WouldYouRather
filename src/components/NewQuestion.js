@@ -55,7 +55,7 @@ export default function ActionAreaCard() {
               onChange={(e) => setTwo(e.target.value)}
               className='text-field'
             />
-            <Button variant="contained" className='button' onClick={() => {handleSubmit()}}>Submit</Button>
+            <Button variant="contained" className='button' onClick={() => {handleSubmit()}} disabled={one === '' || two === ''}>Submit</Button>
           </Box>
         </CardContent>
     </Card>
