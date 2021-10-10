@@ -4,10 +4,9 @@ import handleInitialData from '../slices/shared'
 import Nav from './Nav'
 import LoginCard from './LoginCard'
 import QuestionsList from './QuestionsList'
-import UnansweredQuestion from './UnansweredQuestion'
-import AnsweredQuestion from './AnsweredQuestion'
 import NewQuestion from './NewQuestion'
 import LeaderBoard from './LeaderBoard'
+import QuestionPage from './QuestionPage';
 import { selectAuthedUser } from '../slices/authedUser';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
@@ -28,9 +27,8 @@ function App() {
         ? <Route path='/' component={LoginCard} />
         : <div>
             <Route path='/' exact component={QuestionsList} />
-            <Route path='/answered/:id' component={AnsweredQuestion} />
-            <Route path='/unanswered/:id' component={UnansweredQuestion} />
-            <Route path='/new' component={NewQuestion} />
+            <Route path='/questions/:id' component={QuestionPage} />
+            <Route path='/add' component={NewQuestion} />
             <Route path='/leaderboard' component={LeaderBoard} />
           </div>
         }

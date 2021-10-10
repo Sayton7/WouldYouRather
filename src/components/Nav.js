@@ -69,7 +69,7 @@ export default function ButtonAppBar() {
         <Toolbar>
           <Box className='navBtns'>
             <Button color="inherit" disabled={authedUser === null} component={Link} to='/'>Home</Button>
-            <Button color="inherit" disabled={authedUser === null} component={Link} to='/new'>New Question</Button>
+            <Button color="inherit" disabled={authedUser === null} component={Link} to='/add'>New Question</Button>
             <Button color="inherit" disabled={authedUser === null} component={Link} to='/leaderboard'>Leader Board</Button>
           </Box>
           <Box className="userInfo">

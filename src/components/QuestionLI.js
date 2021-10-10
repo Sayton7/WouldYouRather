@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 export default function ActionAreaCard(props) {
   return (
     <Card className='question-li'>
-      <CardActionArea component={Link} to={props.isAnswered ? `/answered/${props.qid}` : `/unanswered/${props.qid}`}>
+      <CardActionArea component={Link} to={`/questions/${props.qid}`}>
         <CardContent>
           <Typography gutterBottom variant="h" component="div" className='user-asked'>
             {`${props.userName} asks:`}
