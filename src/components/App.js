@@ -29,11 +29,9 @@ function App() {
         : <Switch>
             <Route path='/' exact component={QuestionsList} />
             <Route path='/questions/:id' exact component={QuestionPage} />
-            <Route path='/questions/*' component={NotFound} />
             <Route path='/add' component={NewQuestion} />
             <Route path='/leaderboard' component={LeaderBoard} />
             <Route path='*' component={NotFound} />
-            
           </Switch>
         }
       </div>

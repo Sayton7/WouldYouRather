@@ -5,13 +5,12 @@ import UnansweredQuestion from './UnansweredQuestion'
 import { selectAuthedUser } from "../slices/authedUser";
 import { selectUsers } from "../slices/users";
 import { selectQuestions } from "../slices/questions";
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Redirect } from "react-router";
 
 
 const QuestionPage = () => {
     const {id} = useParams()
-    const location = useLocation()
     const authedUser = useSelector(selectAuthedUser)
     const users = useSelector(selectUsers)
     const questions = useSelector(selectQuestions)
