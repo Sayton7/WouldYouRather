@@ -48,7 +48,7 @@ export default function BasicTabs() {
   const authedUser = useSelector(selectAuthedUser)
   const users = useSelector(selectUsers)
   const questions = useSelector(selectQuestions)
-  const questionsList = Object.keys(questions)
+  const questionsList = Object.keys(questions).sort((a,b) => questions[b].timestamp - questions[a].timestamp)
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
