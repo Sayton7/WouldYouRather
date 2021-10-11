@@ -16,7 +16,7 @@ import { useSelector } from 'react-redux';
 import { selectAuthedUser, removeAuthedUser } from '../slices/authedUser';
 import { useDispatch } from 'react-redux';
 import { selectUsers } from '../slices/users'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export default function ButtonAppBar() {
   const [open, setOpen] = React.useState(false);
@@ -68,9 +68,9 @@ export default function ButtonAppBar() {
       <AppBar position="static">
         <Toolbar>
           <Box className='navBtns'>
-            <Button color="inherit" disabled={authedUser === null} component={Link} to='/'>Home</Button>
-            <Button color="inherit" disabled={authedUser === null} component={Link} to='/add'>New Question</Button>
-            <Button color="inherit" disabled={authedUser === null} component={Link} to='/leaderboard'>Leader Board</Button>
+            <Button color="inherit" disabled={authedUser === null} component={NavLink} exact to='/'>Home</Button>
+            <Button color="inherit" disabled={authedUser === null} component={NavLink} to='/add'>New Question</Button>
+            <Button color="inherit" disabled={authedUser === null} component={NavLink} to='/leaderboard'>Leader Board</Button>
           </Box>
           <Box className="userInfo">
             <Typography variant="h6" component="div" >
