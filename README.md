@@ -1,4 +1,4 @@
-# MyReads Project
+# WouldYouRather Project
 
 * A simple App where users could ask questions, answer each other's questions and get ranked based on their interactions.
 * You could login using different users and have the app's pages interact with each user's status (including their answered and asked questions).
@@ -23,7 +23,7 @@ To get started developing right away:
 
 ## Backend Server
 
-To simplify your development process, we've provided a backend server for you to develop against. The provided file [`_DATA.js`](src/utils/_DATA.js.js) was used to build a simple api file [`api.js`](src/utils/api.js) contains the methods you will need to perform necessary operations on the backend:
+To simplify your development process, we've provided a backend server for you to develop against. The provided file [`_DATA.js`](src/utils/_DATA.js) was used to build a simple api file [`api.js`](src/utils/api.js) contains the methods you will need to perform necessary operations on the backend:
 
 * [`getInitialData`](#getInitialData)
 * [`saveQuestion`](#saveQuestion)
